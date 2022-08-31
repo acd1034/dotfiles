@@ -25,7 +25,7 @@
     },
     { // GCC Debug Run
       "label": "GCC Debug Run",
-      "command": "g++-11",
+      "command": "g++-12",
       "args": [
         "${file}",
         "-g",
@@ -46,7 +46,7 @@
     },
     { // GCC Release Run
       "label": "GCC Release Run",
-      "command": "g++-11",
+      "command": "g++-12",
       "args": [
         "${file}",
         "-O3",
