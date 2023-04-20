@@ -11,8 +11,7 @@
       ],
       "cStandard": "c17",
       "cppStandard": "c++20",
-      "intelliSenseMode": "macos-gcc-x64",
-      "configurationProvider": "ms-vscode.cmake-tools"
+      // "configurationProvider": "ms-vscode.cmake-tools"
     },
     {
       "name": "WSL",
@@ -25,8 +24,7 @@
       ],
       "cStandard": "c17",
       "cppStandard": "c++20",
-      "intelliSenseMode": "linux-gcc-x64",
-      "configurationProvider": "ms-vscode.cmake-tools"
+      // "configurationProvider": "ms-vscode.cmake-tools"
     }
   ],
   "version": 4
