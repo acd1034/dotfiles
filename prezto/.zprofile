@@ -73,4 +73,5 @@ if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 # Custom settings
+eval "$(/opt/homebrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"

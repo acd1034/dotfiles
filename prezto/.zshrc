@@ -12,11 +12,9 @@ fi
 
 # Customize to your needs...
 alias amend='git commit --amend --no-edit'
-alias beep='tput bel; echo "\e]9;Ghostty test (OSC 9)\a"'
+alias beep='tput bel; echo "\e]9;Finished!\a"'
 alias jpeg='mkdir jpeg && sips -s format jpeg *.* --out jpeg/'
 alias ls='eza'
-alias ll='eza -hl'
-alias la='eza -hla'
 alias cat='bat'
 alias grep='rg'
 alias find='fd'
