@@ -32,7 +32,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 log_info "Installing prezto..."
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^(zpreztorc|zprofile|zshrc|README.md)(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 
@@ -40,7 +40,7 @@ done
 log_info "Installing from Brewfile..."
 curl -fsSL -o Brewfile https://raw.githubusercontent.com/acd1034/dotfiles/main/Brewfile
 brew bundle --file=Brewfile || true
-rm Brewfile
+rm -f Brewfile
 
 # fzf
 log_info "Installing fzf..."
