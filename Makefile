@@ -12,8 +12,8 @@ update: ## dotfilesをシンボリックリンクで配置
 	done
 	@echo "Done!"
 
-.PHONY: delete
-delete: ## リンクを削除（管理解除）
+.PHONY: remove
+remove: ## リンクを削除（管理解除）
 	@echo "Removing dotfiles..."
 	@for package in $(PACKAGES); do \
 		stow -v -D -t $(TARGET_DIR) $$package; \
