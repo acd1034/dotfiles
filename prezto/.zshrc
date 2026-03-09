@@ -17,7 +17,6 @@ alias jpeg='mkdir jpeg && sips -s format jpeg *.* --out jpeg/'
 alias ls='eza'
 alias cat='bat'
 alias grep='rg'
-alias find='fd'
 eval "$(zoxide init zsh --cmd cd)"
 
 # TODO: --strip-cwd-prefix
