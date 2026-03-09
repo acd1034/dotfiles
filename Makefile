@@ -11,12 +11,12 @@ PACKAGES := prezto ghostty git
 .PHONY: update
 update: ## dotfilesをシンボリックリンクで配置
 	stow -v -R -t $(TARGET_DIR) $(PACKAGES)
-	@echo -e "$(GREEN)Done!"
+	@printf "$(GREEN)Done!$(NC)\n"
 
 .PHONY: remove
 remove: ## シンボリックリンクを削除
 	stow -v -D -t $(TARGET_DIR) $(PACKAGES)
-	@echo -e "$(GREEN)Done!"
+	@printf "$(GREEN)Done!$(NC)\n"
 
 .DEFAULT_GOAL := help
 .PHONY: help
