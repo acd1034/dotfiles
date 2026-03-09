@@ -1,0 +1,10 @@
+[user]
+	name = acd1034
+	email = 48613285+acd1034@users.noreply.github.com
+[color]
+	ui = auto
+[core]
+	autocrlf = input
+	ignorecase = false
+	quotepath = false
+	whitespace = cr-at-eol

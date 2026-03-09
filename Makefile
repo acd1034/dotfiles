@@ -2,7 +2,7 @@
 TARGET_DIR   := $(HOME)
 
 # 対象とするパッケージ（ディレクトリ名）
-PACKAGES := prezto ghostty
+PACKAGES := prezto ghostty git
 
 .PHONY: update
 update: ## dotfilesをシンボリックリンクで配置
