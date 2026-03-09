@@ -8,28 +8,43 @@ log_info() {
 # 失敗したらスクリプトを終了
 set -euo pipefail
 
-# スクリプトのあるディレクトリに移動
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-cd "$SCRIPT_DIR"
+# sudo keep-alive
+log_info "Requesting sudo..."
+sudo -v
+while true; do
+  sudo -n true
+  sleep 150
+  kill -0 "$$" || exit
+done 2>/dev/null &
+
+# ホームディレクトリに移動
+cd "$HOME"
 log_info "Pwd: $(pwd)"
 
-# dotfiles
-log_info "Installing dotfiles..."
-make update
+# Xcode
+log_info "Installing Xcode..."
+xcode-select --install || true
+
+# Homebrew
+log_info "Installing Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> "$HOME/.zprofile"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # prezto
 log_info "Installing prezto..."
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  [[ -e "${SCRIPT_DIR}/prezto/.${rcfile:t}" ]] && continue
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 
 # Brew bundle
 log_info "Installing from Brewfile..."
+curl -fsSL -o Brewfile https://raw.githubusercontent.com/acd1034/dotfiles/main/Brewfile
 brew tap Homebrew/bundle
-brew bundle --file=${SCRIPT_DIR}/Brewfile
+brew bundle --file=Brewfile
+rm Brewfile
 
 # fzf
 log_info "Installing fzf..."
@@ -46,3 +61,6 @@ sudo cjk-gs-integrate --link-texmf --cleanup
 sudo cjk-gs-integrate-macos --link-texmf
 sudo mktexlsr
 sudo kanji-config-updmap-sys --jis2004 hiragino-highsierra-pron
+
+log_info "Finished!"
+tput bel
