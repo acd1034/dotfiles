@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<folders>
+	<folder>
+		<title>Translation</title>
+		<snippets>
+			<snippet>
+				<title>replyの英語に翻訳</title>
+				<content>以下の箇条書きの内容を用いてPRBの査読の返信を英語で書いてください。
+- 返信はtex形式で書いてください。
+- レフェリーを尊重し丁寧な英語で書いてください。
+- 略語は略語のまま書いてください。
+
+---
+
+</content>
+			</snippet>
+			<snippet>
+				<title>論文の英語に翻訳</title>
+				<content>以下の文章はmarkdown形式で書かれた物性物理の論文の日本語の文章です。この文章をtex形式で書かれた論文の英語の文章に翻訳してください。略語は略語のまま書いてください。
+
+---
+
+</content>
+			</snippet>
+			<snippet>
+				<title>論文の日本語に翻訳</title>
+				<content>以下の文章はtex形式で書かれた物性物理の論文の英語の文章です。この文章をtex形式で書かれた論文の日本語の文章に翻訳してください。略語は略語のまま書いてください。
+
+---
+
+</content>
+			</snippet>
+			<snippet>
+				<title>再度論文の英語に翻訳</title>
+				<content>以下の内容は物性物理の論文の日本語の文章です。この内容をtex形式で書かれた論文の英語の文章に翻訳してください。翻訳の際は、以下の英語の文章からあまり変更を加えないようにしてください。また、略語は略語のまま書いてください。
+
+## 英語の文章
+
+{文章}
+
+## 内容
+
+</content>
+			</snippet>
+			<snippet>
+				<title>博論スライドの英語に翻訳</title>
+				<content>以下の箇条書きは博士論文の発表スライドのフォノンAM輸送の内容の一部です。この箇条書きを、博論発表スライドに使えるクオリティの簡潔な英語に翻訳してください。
+
+---
+
+</content>
+			</snippet>
+			<snippet>
+				<title>自分の回答要約</title>
+				<content>4)の「角運動量の透過を最大化するための実験・物質設計の方向性（現実的な手段）を検討すべき」に対する私の回答の内容をまとめてください。</content>
+			</snippet>
+			<snippet>
+				<title>書き起こし指摘要約</title>
+				<content>以下の文章は博士論文のイントロに関する杉野先生との議論の書き起こしです。この書き起こしの中から、杉野先生の指摘の内容を抜き出してまとめてください。
+
+---
+
+</content>
+			</snippet>
+			<snippet>
+				<title>論文の手法・結果・考察</title>
+				<content>以下の論文の内容を目的・手法・結果・考察が明示的にわかる形で日本語で要約してください。
+
+---
+
+</content>
+			</snippet>
+			<snippet>
+				<title>TeX数式変換</title>
+				<content>この画像のTeXの数式をコードブロックで囲まれたTeXのコードに変換してください</content>
+			</snippet>
+		</snippets>
+	</folder>
+	<folder>
+		<title>Email</title>
+		<snippets>
+			<snippet>
+				<title>Send to Jagoda</title>
+				<content>留学先でお世話になったJagoda Sławińska先生にメールを書こうと考えています。先生へのメールを英語で書いてください。メールには以下の内容を含めてください。
+
+## 内容
+
+</content>
+			</snippet>
+			<snippet>
+				<title>Reply to Jagoda</title>
+				<content>以下のメールは留学先でお世話になったJagoda Sławińska先生からのメールです。先生への返信を英語で書いてください。返信には以下の内容を含めてください。
+
+## メール
+
+{mail}
+
+## 内容
+
+</content>
+			</snippet>
+			<snippet>
+				<title>Send to Karma</title>
+				<content>オランダの共同研究者のKarmaにメールを書こうと考えています。Karmaへのメールを英語で書いてください。メールには以下の内容を含めてください。
+
+## 内容
+
+</content>
+			</snippet>
+			<snippet>
+				<title>Reply to Karma</title>
+				<content>以下のメールはオランダの共同研究者のKarmaからのメールです。Karmaへの返信を英語で書いてください。返信には以下の内容を含めてください。
+
+## メール
+
+{mail}
+
+## 内容
+
+</content>
+			</snippet>
+		</snippets>
+	</folder>
+</folders>
