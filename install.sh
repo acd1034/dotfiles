@@ -1,6 +1,10 @@
 #!/usr/bin/env zsh
+GREEN='\033[0;32m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
+log_success() {
+  echo -e "${GREEN}$1"
+}
 log_info() {
   echo -e "${CYAN}[INFO]${NC} $1"
 }
@@ -46,5 +50,5 @@ rm -f Brewfile
 log_info "Installing fzf..."
 $(brew --prefix)/opt/fzf/install --all
 
-log_info "Finished!"
+log_success "Finished!"
 tput bel
