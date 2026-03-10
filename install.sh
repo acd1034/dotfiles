@@ -1,12 +1,15 @@
 #!/usr/bin/env zsh
-GREEN='\033[0;32m'
-CYAN='\033[0;36m'
-NC='\033[0m' # No Color
+log_error() {
+  printf "\033[0;31m[ERROR]\033[0m %s\n" "$1"
+}
 log_success() {
-  printf "${GREEN}%s${NC}\n" "$1"
+  printf "\033[0;32m[SUCCESS]\033[0m %s\n" "$1"
+}
+log_warning() {
+  printf "\033[0;33m[WARNING]\033[0m %s\n" "$1"
 }
 log_info() {
-  printf "${CYAN}[INFO]${NC} %s\n" "$1"
+  printf "\033[0;36m[INFO]\033[0m %s\n" "$1"
 }
 
 # 失敗したらスクリプトを終了

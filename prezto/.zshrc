@@ -14,8 +14,14 @@ fi
 log_error() {
   printf "\033[0;31m[ERROR]\033[0m %s\n" "$1"
 }
+log_success() {
+  printf "\033[0;32m[SUCCESS]\033[0m %s\n" "$1"
+}
 log_warning() {
   printf "\033[0;33m[WARNING]\033[0m %s\n" "$1"
+}
+log_info() {
+  printf "\033[0;36m[INFO]\033[0m %s\n" "$1"
 }
 check_dotfiles_dirty() {
   local dotfiles="$HOME/.dotfiles"
