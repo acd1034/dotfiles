@@ -11,6 +11,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+log_error() {
+  printf "\033[0;31m[ERROR]\033[0m %s\n" "$1"
+}
 log_warning() {
   printf "\033[0;33m[WARNING]\033[0m %s\n" "$1"
 }
@@ -56,6 +59,20 @@ check_dotfiles_dirty() {
 }
 check_dotfiles_dirty
 
+# aliases
+cp_vspy() {
+  local src="$HOME/.dotfiles/vscode/python"
+  local dest="./.vscode"
+
+  if [[ ! -d "$src" ]]; then
+    log_error "$src does not exist."
+    return 1
+  fi
+
+  mkdir -p "$dest"
+  # コピーの実行（-R: 再帰的, -v: 詳細表示, -i: 上書き前に確認）
+  cp -Rvi "$src/"* "$dest/"
+}
 alias amend='git commit --amend --no-edit'
 alias beep='tput bel'
 alias jpeg='mkdir -p jpeg && sips -s format jpeg *.* --out jpeg/'

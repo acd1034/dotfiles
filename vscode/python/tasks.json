@@ -1,0 +1,43 @@
+{
+  // https://go.microsoft.com/fwlink/?LinkId=733558
+  // https://code.visualstudio.com/docs/editor/variables-reference
+  "tasks": [
+    {
+      "label": "Run Module",
+      "command": "uv run python -m sample",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "pytest",
+      "command": "uv run pytest",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Format",
+      "command": "uv run ruff check ${fileDirname} --fix --config ${workspaceFolder}/pyproject.toml"
+    },
+    {
+      "label": "Format (BBOpt)",
+      "command": "uv run ruff check ${file} --fix --unsafe-fixes --config ${workspaceFolder}/pyproject.toml --extend-select F401,F841,RUF059,B007"
+    }
+  ],
+  "type": "shell",
+  "group": "build",
+  "options": {
+    "cwd": "${workspaceFolder}"
+  },
+  "presentation": {
+    "clear": true,
+    "echo": false,
+    "reveal": "always",
+    "showReuseMessage": true
+  },
+  "problemMatcher": "$gcc",
+  "version": "2.0.0"
+}
