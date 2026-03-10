@@ -3,24 +3,27 @@ GREEN='\033[0;32m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 log_success() {
-  echo -e "${GREEN}$1"
+  printf "${GREEN}%s${NC}\n" "$1"
 }
 log_info() {
-  echo -e "${CYAN}[INFO]${NC} $1"
+  printf "${CYAN}[INFO]${NC} %s\n" "$1"
 }
 
 # 失敗したらスクリプトを終了
 set -euo pipefail
 
-# sudo keep-alive
+# sudoを維持
 # TODO: does not work well
-log_info "Requesting sudo..."
-sudo -v
-while true; do
-  sudo -n true
-  sleep 150
-  kill -0 "$$" || exit
-done 2>/dev/null &
+keep_sudo_alive() {
+  log_info "Requesting sudo..."
+  sudo -v
+  while true; do
+    sudo -n true
+    sleep 150
+    kill -0 "$$" || exit
+  done 2>/dev/null &
+}
+keep_sudo_alive
 
 # ホームディレクトリに移動
 cd "$HOME"
@@ -45,10 +48,6 @@ log_info "Installing from Brewfile..."
 curl -fsSL -o Brewfile https://raw.githubusercontent.com/acd1034/dotfiles/main/Brewfile
 brew bundle --file=Brewfile || true
 rm -f Brewfile
-
-# rust
-log_info "Installing Rust..."
-rustup-init -y --default-toolchain stable --no-modify-path
 
 # fzf
 log_info "Installing fzf..."
