@@ -46,6 +46,10 @@ curl -fsSL -o Brewfile https://raw.githubusercontent.com/acd1034/dotfiles/main/B
 brew bundle --file=Brewfile || true
 rm -f Brewfile
 
+# rust
+log_info "Installing Rust..."
+rustup-init -y --default-toolchain stable --no-modify-path
+
 # fzf
 log_info "Installing fzf..."
 $(brew --prefix)/opt/fzf/install --all

@@ -13,7 +13,8 @@ fi
 # Customize to your needs...
 alias amend='git commit --amend --no-edit'
 alias beep='tput bel; echo "\e]9;Finished!\a"'
-alias jpeg='mkdir jpeg && sips -s format jpeg *.* --out jpeg/'
+alias jpeg='mkdir -p jpeg && sips -s format jpeg *.* --out jpeg/'
+alias echopath='echo $PATH | tr ":" "\n"'
 alias ls='eza'
 alias cat='bat'
 alias grep='rg'
