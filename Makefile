@@ -8,6 +8,7 @@ TARGET_DIR := $(HOME)
 # 対象とするパッケージ（ディレクトリ名）
 PACKAGES := prezto ghostty git
 
+# -v: 詳細表示, -R: 再リンク, -t TARGET: ターゲットディレクトリの指定
 .PHONY: update
 update: ## dotfilesをシンボリックリンクで配置
 	stow -v -R -t $(TARGET_DIR) $(PACKAGES)

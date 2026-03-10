@@ -64,6 +64,7 @@ macos-titlebar-style = transparent
 macos-window-shadow = true
 mouse-hide-while-typing = true
 window-inherit-working-directory = false
+tab-inherit-working-directory = false
 quit-after-last-window-closed = true
 macos-option-as-alt = true
 bell-features = title,attention
