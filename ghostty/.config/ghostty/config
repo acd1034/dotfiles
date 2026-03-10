@@ -3,7 +3,7 @@
 # This template file has been automatically created at the following
 # path since Ghostty couldn't find any existing config files on your system:
 #
-#   /Users/hirakida/.config/ghostty/config
+#   ~/.config/ghostty/config
 #
 # The template does not set any default options, since Ghostty ships
 # with sensible defaults for all options. Users should only need to set
@@ -13,7 +13,7 @@
 # all available config options and their default values.
 #
 # Additionally, each config option is also explained in detail
-# on Ghostty's website, at https://ghostty.org/docs/config.
+# on Ghostty's website, at https://ghostty.org/docs/config/reference.
 #
 # Ghostty can reload the configuration while running by using the menu
 # options or the bound key (default: Command + Shift + comma on macOS and

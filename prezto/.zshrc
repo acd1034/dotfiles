@@ -60,10 +60,12 @@ alias amend='git commit --amend --no-edit'
 alias beep='tput bel'
 alias jpeg='mkdir -p jpeg && sips -s format jpeg *.* --out jpeg/'
 alias echopath='echo $PATH | tr ":" "\n"'
+alias gedit='code ~/.config/ghostty/config'
 alias ls='eza'
 alias grep='rg'
-eval "$(zoxide init zsh --cmd cd)"
+eval "$(zoxide init zsh --cmd cd)" # cd='zoxide'
 
+# fzf
 # TODO: --strip-cwd-prefix
 export FZF_CTRL_T_COMMAND='fd --max-depth 1 --hidden --follow --exclude .git'
 export FZF_CTRL_T_OPTS="
