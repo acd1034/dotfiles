@@ -29,7 +29,7 @@ check_dotfiles_dirty() {
     local dotfiles_check_state="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles_last_check"
     local current_time=$(date +%s)
     local last_check=$(cat "$dotfiles_check_state" 2>/dev/null || echo 0)
-    if (( current_time - last_check > 11 )); then
+    if (( current_time - last_check > 28800 )); then
       # 最終チェック時刻を更新
       echo "$current_time" >| "$dotfiles_check_state"
 
@@ -45,8 +45,6 @@ check_dotfiles_dirty() {
       if [ "$behind" -gt 0 ]; then
         if ! git -C "$dotfiles" merge --ff-only '@{upstream}' > /dev/null 2>&1; then
           log_warning "Failed to merge remote changes for $dotfiles_vscode."
-        else
-          printf "\033[0;32mDone!\033[0m\n"
         fi
       fi
 
