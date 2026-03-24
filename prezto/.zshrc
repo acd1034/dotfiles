@@ -66,7 +66,7 @@ check_dotfiles_dirty() {
 check_dotfiles_dirty
 
 # aliases
-cp_vspy() {
+vspython() {
   local src="$HOME/.dotfiles/vscode/python"
   local dest="./.vscode"
 
@@ -76,8 +76,10 @@ cp_vspy() {
   fi
 
   mkdir -p "$dest"
+  setopt local_options extended_glob
   # コピーの実行（-R: 再帰的, -v: 詳細表示, -i: 上書き前に確認）
-  cp -Rvi "$src/"* "$dest/"
+  cp -Rvi "$src/"^gitignore "$dest/"
+  cp -vi "$src/gitignore" "$dest/.gitignore"
 }
 alias amend='git commit --amend --no-edit'
 alias beep='tput bel'
