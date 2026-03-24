@@ -66,26 +66,12 @@ check_dotfiles_dirty() {
 check_dotfiles_dirty
 
 # aliases
-vspython() {
-  local src="$HOME/.dotfiles/vscode/python"
-  local dest="./.vscode"
-
-  if [[ ! -d "$src" ]]; then
-    log_error "$src does not exist."
-    return 1
-  fi
-
-  mkdir -p "$dest"
-  setopt local_options extended_glob
-  # コピーの実行（-R: 再帰的, -v: 詳細表示, -i: 上書き前に確認）
-  cp -Rvi "$src/"^gitignore "$dest/"
-  cp -vi "$src/gitignore" "$dest/.gitignore"
-}
 alias amend='git commit --amend --no-edit'
 alias beep='tput bel'
 alias jpeg='mkdir -p jpeg && sips -s format jpeg *.* --out jpeg/'
 alias echopath='echo $PATH | tr ":" "\n"'
 alias gedit='code ~/.config/ghostty/config'
+alias repoinit='make -f ~/.dotfiles/vscode/repoinit.mk'
 alias ls='eza'
 alias grep='rg'
 eval "$(zoxide init zsh --cmd cd)" # cd='zoxide'
