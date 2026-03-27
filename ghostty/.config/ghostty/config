@@ -60,14 +60,18 @@ window-padding-x = 5
 window-padding-y = 5
 window-padding-balance = true
 
+macos-option-as-alt = true
 macos-titlebar-style = transparent
 macos-window-shadow = true
 mouse-hide-while-typing = true
-window-inherit-working-directory = false
-tab-inherit-working-directory = false
 quit-after-last-window-closed = true
-macos-option-as-alt = true
+tab-inherit-working-directory = false
+window-inherit-working-directory = false
+
 bell-features = title,attention
+notify-on-command-finish = true
+notify-on-command-finish-action = bell,notify
+notify-on-command-finish-after = 20s # default: 5s
 
 copy-on-select = true
 clipboard-read = allow
