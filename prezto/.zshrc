@@ -118,6 +118,8 @@ export FZF_ALT_C_OPTS="
 "
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # keybindings for fzf
 
+# For pfutil
+# https://github.com/pfn-chip/pfcomp/blob/master/codegen/k8s-development/README.md#install-pfutil
 [ -d $HOME/.local/bin/ ] && export PATH=$HOME/.local/bin/:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -126,6 +128,5 @@ if [ -f '/Users/hirakida/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Us
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/hirakida/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hirakida/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+# For Rancher Desktop
 [ -d "/Users/hirakida/.rd/bin" ] && export PATH="/Users/hirakida/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
