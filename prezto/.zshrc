@@ -127,5 +127,5 @@ if [ -f '/Users/hirakida/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Us
 if [ -f '/Users/hirakida/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hirakida/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-[ -d "/Users/hirakida/.rd/bin" ] && export PATH="/Users/hirakida/.rd/bin:$PATH"
+export PATH="/Users/hirakida/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
