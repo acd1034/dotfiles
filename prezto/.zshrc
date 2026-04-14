@@ -67,6 +67,7 @@ check_dotfiles_dirty
 
 # aliases
 alias amend='git commit --amend --no-edit'
+alias add_safe='git config --global --add safe.directory'
 alias beep='tput bel'
 alias jpeg='mkdir -p jpeg && sips -s format jpeg *.* --out jpeg/'
 alias echopath='echo $PATH | tr ":" "\n"'
