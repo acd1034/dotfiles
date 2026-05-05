@@ -24,7 +24,7 @@ log_info() {
   printf "\033[0;36m[INFO]\033[0m %s\n" "$1"
 }
 check_dotfiles_dirty() {
-  local dotfiles="$HOME/.dotfiles"
+  local dotfiles="${HOME}/.dotfiles"
   local dotfiles_text="~/.dotfiles"
   local dotfiles_vscode=$'\033]8;;vscode://file'"$dotfiles"$'\033\\'"$dotfiles_text"$'\033]8;;\033\\'
   [ -d "$dotfiles/.git" ] || return
@@ -67,12 +67,11 @@ check_dotfiles_dirty
 
 # aliases
 alias amend='git commit --amend --no-edit'
-alias add_safe='git config --global --add safe.directory'
 alias beep='tput bel'
 alias jpeg='mkdir -p jpeg && sips -s format jpeg *.* --out jpeg/'
 alias echopath='echo $PATH | tr ":" "\n"'
-alias gedit='code ~/.config/ghostty/config'
-alias repoinit='make -f ~/.dotfiles/vscode/repoinit.mk'
+alias gedit='code "${HOME}/.config/ghostty/config"'
+alias repoinit='make -f "${HOME}/.dotfiles/vscode/repoinit.mk"'
 alias ls='eza'
 alias grep='rg'
 eval "$(zoxide init zsh --cmd cd)" # cd='zoxide'
@@ -117,7 +116,7 @@ export FZF_ALT_C_OPTS="
   )'
   --header 'Right: Open / Left: Back'
 "
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # keybindings for fzf
+[ -f "${HOME}/.fzf.zsh" ] && source "${HOME}/.fzf.zsh" # keybindings for fzf
 
 # For pfutil
 # https://github.com/pfn-chip/pfcomp/blob/master/codegen/k8s-development/README.md#install-pfutil

@@ -29,7 +29,7 @@ keep_sudo_alive() {
 keep_sudo_alive
 
 # ホームディレクトリに移動
-cd "$HOME"
+cd "${HOME}"
 log_info "Pwd: $(pwd)"
 
 # Homebrew

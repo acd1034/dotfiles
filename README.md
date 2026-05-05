@@ -9,7 +9,7 @@ xcode-select --install
 ## Install
 
 ```sh
-cd ~
+cd "${HOME}"
 curl -fsSL -o install.sh https://raw.githubusercontent.com/acd1034/dotfiles/main/install.sh
 zsh install.sh && rm -f install.sh
 ```
@@ -17,7 +17,7 @@ zsh install.sh && rm -f install.sh
 ## Update symbolic links
 
 ```sh
-git clone git@github.com:acd1034/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
+git clone git@github.com:acd1034/dotfiles.git "${HOME}/.dotfiles"
+cd "${HOME}/.dotfiles"
 make update
 ```

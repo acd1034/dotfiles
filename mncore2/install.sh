@@ -16,7 +16,7 @@ log_info() {
 set -euo pipefail
 
 # ホームディレクトリに移動
-cd "$HOME"
+cd "${HOME}"
 log_info "Pwd: $(pwd)"
 
 # prezto

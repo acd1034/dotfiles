@@ -29,12 +29,12 @@ alias amend='git commit --amend --no-edit'
 alias beep='tput bel'
 alias jpeg='mkdir -p jpeg && sips -s format jpeg *.* --out jpeg/'
 alias echopath='echo $PATH | tr ":" "\n"'
-alias gedit='code ~/.config/ghostty/config'
-alias repoinit='make -f ~/.dotfiles/vscode/repoinit.mk'
+alias gedit='code "${HOME}/.config/ghostty/config"'
+alias repoinit='make -f "${HOME}/.dotfiles/vscode/repoinit.mk"'
 # TODO
 # alias ls='eza'
 # alias grep='rg'
 # eval "$(zoxide init zsh --cmd cd)" # cd='zoxide'
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # keybindings for fzf
+[ -f "${HOME}/.fzf.zsh" ] && source "${HOME}/.fzf.zsh" # keybindings for fzf
