@@ -20,7 +20,7 @@ PACKAGES := prezto ghostty git
 # -v: 詳細表示, -R: 再リンク, -t TARGET: ターゲットディレクトリの指定
 .PHONY: update
 update: ## dotfilesをシンボリックリンクとして配置
-	stow -v -R -t $(TARGET_DIR) $(PACKAGES)
+	stow -v -R --no-folding -t $(TARGET_DIR) $(PACKAGES)
 	$(call log_success,Done!)
 
 .PHONY: remove
