@@ -25,7 +25,7 @@ mncore2: ## mncore2
 
 .PHONY: mncore2-local
 mncore2-local: ## mncore2-local
-	-ln -sin $(HOME)/Documents/programs/LOCAL-pfcomp/.venv $(DEST)/.venv
+	-ln -sin $(HOME)/Documents/programs/LOCAL-rhirakida-pfcomp/.venv $(DEST)/.venv
 	$(call log_success,Done!)
 
 .DEFAULT_GOAL := help
