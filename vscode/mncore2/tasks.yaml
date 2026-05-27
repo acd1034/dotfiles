@@ -1,0 +1,93 @@
+# VSCode tasks configuration
+tasks:
+  # --- Codegen ---
+  - label: "codegen: Format C++"
+    command: ${workspaceFolder}/codegen/scripts/run_clang_format.sh -m
+  - label: "codegen: Format Python"
+    command: ${workspaceFolder}/codegen/scripts/run_python_check.sh -m
+  - label: "codegen: Build"
+    command: |
+      bash bin/build &&
+      env -u PYTHONPATH bash -lc 'source "${HOME}/pfcomp/codegen/build/codegen_pythonpath.sh" &&
+      printf "PYTHONPATH=%s\n" "$PYTHONPATH"' >| "${HOME}/pfcomp/.vscode/.env"
+    group:
+      kind: build
+      isDefault: true
+    options:
+      cwd: ${workspaceFolder}/codegen
+
+  # --- FX2ONNX ---
+  - label: "fx2onnx: Format"
+    command: ${workspaceFolder}/fx2onnx/scripts/run-pysen-format.sh
+  - label: "fx2onnx: Test"
+    command: ${workspaceFolder}/fx2onnx/scripts/pytest.sh ${file}
+    group: test
+
+  # --- TeaNet ---
+  - label: "teanet: Test check value"
+    command: bash teanet-check-value.sh
+    group: test
+    options:
+      cwd: ${workspaceFolder}/codegen
+  - label: "teanet: Test md"
+    command: bash teanet-md.sh
+    group: test
+    options:
+      cwd: ${workspaceFolder}/codegen
+  - label: "teanet: Test dcmp"
+    command: bash teanet-dcmp.sh
+    group: test
+    options:
+      cwd: ${workspaceFolder}/codegen
+  - label: "teanet: Parse dcmp log"
+    command: awk '{print FILENAME ":" NR " " $0}' ${file}
+    type: shell
+    problemMatcher:
+      - fileLocation: absolute
+        pattern:
+          - regexp: ^([^:]+):(\d+) (Command terminated by (signal \d+))$
+            file: 1
+            line: 2
+            code: 4
+            message: 3
+      - fileLocation: absolute
+        pattern:
+          - regexp: ^([^:]+):(\d+) (F\d+) \d{2}:\d{2}:\d{2}\.\d+ \d+ [^:]+:\d+\] (Check .+ failed! \( in .+) at
+            file: 1
+            line: 2
+            code: 3
+            message: 4
+
+  # --- PFVM ---
+  - label: "pfvm: Format"
+    command: |
+      source .pfvm_venv/bin/activate &&
+      bash scripts/run-pysen-format.sh -m
+    options:
+      cwd: ${workspaceFolder}/pfvm
+
+  # --- Others ---
+  - label: nandemo-share
+    command: |
+      src=${file};
+      dst=${src//\/mnt\/pvc-home/\/mnt\/chip-pvc\/tmp};
+      mkdir -p $(dirname $dst) &&
+      cp $src $dst &&
+      echo https://chip-nandemo-share.pfn.yh1-01.ingress.pfcomputing.com/file$dst
+
+  - label: Get pod name
+    command: kubectl get pods -o wide
+
+  - label: Convert YAML/JSON
+    command: python3 "${HOME}/.dotfiles/scripts/convert_yaml_json.py" ${file}
+
+# --- Global settings ---
+type: shell
+group: none
+presentation:
+  clear: true
+  echo: false
+  reveal: always
+  showReuseMessage: true
+problemMatcher: $gcc
+version: 2.0.0

@@ -1,0 +1,45 @@
+{
+  // C/C++
+  "C_Cpp.suggestSnippets": false,
+  "[cpp][toml]": {
+    "editor.formatOnSave": false
+  },
+  // clangd
+  "C_Cpp.autocomplete": "disabled",
+  "C_Cpp.intelliSenseEngine": "disabled",
+  // Python
+  // "mypy-type-checker.args": [
+  //     "--config-file=${workspaceFolder}/fx2onnx/pyproject.toml"
+  // ],
+  // "mypy-type-checker.importStrategy": "fromEnvironment",
+  "python.analysis.autoFormatStrings": true,
+  "python.analysis.inlayHints.callArgumentNames": "all",
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.autoImportCompletions": true,
+  // "python.analysis.typeCheckingMode": "strict",
+  // "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.envFile": "${workspaceFolder}/.vscode/.env",
+  "python.languageServer": "Pylance",
+  "python.terminal.useEnvFile": true
+  // "[python]": {
+  //   "editor.defaultFormatter": "charliermarsh.ruff",
+  //   "editor.suggestSelection": "recentlyUsedByPrefix",
+  //   "editor.codeActionsOnSave": {
+  //     "source.fixAll": "explicit",
+  //     "source.organizeImports": "explicit"
+  //   }
+  // },
+  // https://docs.astral.sh/ruff/editors/migration/#lintargs
+  // "ruff.configuration": {
+  //     "unsafe-fixes": true,
+  //     "lint": {
+  //         "unfixable": ["F401", "F841", "RUF059", "B007"]
+  //     }
+  // }
+  // Others
+  // "[markdown]": {
+  //     "editor.formatOnSave": true,
+  //     "files.trimTrailingWhitespace": true
+  // }
+}

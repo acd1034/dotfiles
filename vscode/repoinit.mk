@@ -15,12 +15,12 @@ python: ## Python開発環境を初期化
 
 # -s: ハードリンクではなくシンボリックリンク, -i: 上書き前に確認, -n: 既存のリンクがあっても中身を追わずに強制的に置き換え
 .PHONY: mncore2
-mncore2: SRC := /mnt/pvc-home/rhirakida/pfcomp/.vscode
+mncore2: SRC := $(HOME)/.dotfiles/vscode/mncore2
 mncore2: ## mncore2
 	mkdir -p $(DEST)/.vscode
-	-cp -i $(SRC)/*.json $(DEST)/.vscode/
-	-cp -i $(SRC)/.gitignore $(DEST)/.vscode/.gitignore
-	-ln -sin $(SRC)/.env $(DEST)/.vscode/.env
+	-cp -i $(SRC)/*.json $(SRC)/*.yaml $(DEST)/.vscode/
+	-cp -i $(SRC)/vscode_gitignore $(DEST)/.vscode/.gitignore
+	-ln -sin $(HOME)/pfcomp/.vscode/.env $(DEST)/.vscode/.env
 	$(call log_success,Done!)
 
 .PHONY: mncore2-local
