@@ -79,3 +79,7 @@ alias repoinit='make -f "${HOME}/.dotfiles/vscode/repoinit.mk"'
 
 # fzf
 [ -f "${HOME}/.fzf.zsh" ] && source "${HOME}/.fzf.zsh" # keybindings for fzf
+
+# >>> Codex installer >>>
+export PATH="/mnt/pvc-home/rhirakida/.local/bin:$PATH"
+# <<< Codex installer <<<
