@@ -63,8 +63,10 @@ check_dotfiles_dirty() {
 
       (
         cd "${HOME}/juan-scratchpad/public_goods/codex" || exit 1
-        START_DATE=$([ "$(date +%d)" = "01" ] && date -d "yesterday" +%F || date +%Y-%m-01)
-        uv run python main.py --start "$START_DATE" -o /mnt/chip-pvc/tmp/rhirakida/codex_usage_report >/dev/null
+        DOW=$(date +%u)
+        START=$(date -d "$((DOW - 1)) days ago" +%F)
+        END=$(date -d "$((7 - DOW)) days" +%F)
+        uv run python main.py --start "$START" --end "$END" -o /mnt/chip-pvc/tmp/rhirakida/codex_usage_report >/dev/null
       )
     fi
   ) &!
