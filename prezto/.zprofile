@@ -74,3 +74,7 @@ fi
 
 # Custom settings
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# >>> Codex installer >>>
+export PATH="/Users/hirakida/.local/bin:$PATH"
+# <<< Codex installer <<<
