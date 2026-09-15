@@ -77,22 +77,21 @@ alias grep='rg'
 eval "$(zoxide init zsh --cmd cd)" # cd='zoxide'
 
 # fzf
-# TODO: --strip-cwd-prefix
 export FZF_CTRL_T_COMMAND='fd --max-depth 1 --hidden --follow --exclude .git'
 export FZF_CTRL_T_OPTS="
   --bind 'right:transform(
     if [ -d {} ]; then
-      echo \"reload($FZF_CTRL_T_COMMAND --search-path {})\"
+      echo \"reload($FZF_CTRL_T_COMMAND --search-path=\{})\"
     else
       echo \"accept\"
     fi
   )'
   --bind 'left:reload(
-    target=\$(dirname \$(dirname {}));
+    target=\$(dirname -- \"\$(dirname -- {})\");
     if [ \"\$target\" = \".\" ]; then
       $FZF_CTRL_T_COMMAND;
     else
-      $FZF_CTRL_T_COMMAND --search-path \"\$target\";
+      $FZF_CTRL_T_COMMAND --search-path=\"\$target\";
     fi
   )'
   --header 'Right: Open / Left: Back'
@@ -101,17 +100,17 @@ export FZF_ALT_C_COMMAND='fd --max-depth 1 --hidden --follow --exclude .git --ty
 export FZF_ALT_C_OPTS="
   --bind 'right:transform(
     if [ -d {} ]; then
-      echo \"reload($FZF_ALT_C_COMMAND --search-path {})\"
+      echo \"reload($FZF_ALT_C_COMMAND --search-path=\{})\"
     else
       echo \"accept\"
     fi
   )'
   --bind 'left:reload(
-    target=\$(dirname \$(dirname {}));
+    target=\$(dirname -- \"\$(dirname -- {})\");
     if [ \"\$target\" = \".\" ]; then
       $FZF_ALT_C_COMMAND;
     else
-      $FZF_ALT_C_COMMAND --search-path \"\$target\";
+      $FZF_ALT_C_COMMAND --search-path=\"\$target\";
     fi
   )'
   --header 'Right: Open / Left: Back'
