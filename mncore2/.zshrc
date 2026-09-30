@@ -60,14 +60,6 @@ check_dotfiles_dirty() {
       if [ "$ahead" -gt 0 ]; then
         log_warning "$dotfiles_vscode is $ahead commits ahead of remote."
       fi
-
-      (
-        cd "${HOME}/juan-scratchpad/public_goods/codex" || exit 1
-        DOW=$(date +%u)
-        START=$(date -d "$((DOW - 1)) days ago" +%F)
-        END=$(date -d "$((7 - DOW)) days" +%F)
-        uv run python main.py --start "$START" --end "$END" -o /mnt/chip-pvc/tmp/rhirakida/codex_usage_report >/dev/null
-      )
     fi
   ) &!
 }
