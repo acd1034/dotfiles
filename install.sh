@@ -56,5 +56,10 @@ rm -f Brewfile
 log_info "Installing fzf..."
 $(brew --prefix)/opt/fzf/install --all
 
+# codex, claude
+log_info "Installing codex, claude..."
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+curl -fsSL https://claude.ai/install.sh | bash
+
 log_success "Finished!"
 tput bel

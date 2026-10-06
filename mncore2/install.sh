@@ -34,8 +34,9 @@ ln -sfnv "${ZDOTDIR:-$HOME}"/.dotfiles/mncore2/.zshrc "${ZDOTDIR:-$HOME}"/.zshrc
 # log_info "Installing fzf..."
 # $(brew --prefix)/opt/fzf/install --all
 
-# codex
+# codex, claude
 curl -fsSL https://chatgpt.com/codex/install.sh | sh
+curl -fsSL https://claude.ai/install.sh | bash
 
 log_success "Finished!"
 tput bel
