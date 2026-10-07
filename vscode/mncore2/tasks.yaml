@@ -2,14 +2,14 @@
 tasks:
   # --- Codegen ---
   - label: "codegen: Format C++"
-    command: ${workspaceFolder}/codegen/scripts/run_clang_format.sh -m
+    command: ${workspaceFolder}/codegen/scripts/run_clang_format.sh -m -f
   - label: "codegen: Format Python"
-    command: ${workspaceFolder}/codegen/scripts/run_python_check.sh -m
+    command: ${workspaceFolder}/codegen/scripts/run_python_check.sh -m -f
   - label: "codegen: Build"
     command: |
       bash bin/build &&
-      env -u PYTHONPATH bash -lc 'source "${HOME}/pfcomp/codegen/build/codegen_pythonpath.sh" &&
-      printf "PYTHONPATH=%s\n" "$PYTHONPATH"' >| "${HOME}/pfcomp/.vscode/.env"
+      env -u PYTHONPATH bash -lc 'source "${workspaceFolder}/codegen/build/codegen_pythonpath.sh" &&
+      printf "PYTHONPATH=%s\n" "$PYTHONPATH"' >| "${workspaceFolder}/.vscode/.env"
     group:
       kind: build
       isDefault: true
@@ -19,54 +19,19 @@ tasks:
   # --- FX2ONNX ---
   - label: "fx2onnx: Format"
     command: ${workspaceFolder}/fx2onnx/scripts/run-pysen-format.sh
-  - label: "fx2onnx: Test"
-    command: ${workspaceFolder}/fx2onnx/scripts/pytest.sh ${file}
-    group: test
-
-  # --- TeaNet ---
-  - label: "teanet: Test check value"
-    command: bash teanet-check-value.sh
-    group: test
-    options:
-      cwd: ${workspaceFolder}/codegen
-  - label: "teanet: Test md"
-    command: bash teanet-md.sh
-    group: test
-    options:
-      cwd: ${workspaceFolder}/codegen
-  - label: "teanet: Test dcmp"
-    command: bash teanet-dcmp.sh
-    group: test
-    options:
-      cwd: ${workspaceFolder}/codegen
-  - label: "teanet: Parse dcmp log"
-    command: awk '{print FILENAME ":" NR " " $0}' ${file}
-    type: shell
-    problemMatcher:
-      - fileLocation: absolute
-        pattern:
-          - regexp: ^([^:]+):(\d+) (Command terminated by (signal \d+))$
-            file: 1
-            line: 2
-            code: 4
-            message: 3
-      - fileLocation: absolute
-        pattern:
-          - regexp: ^([^:]+):(\d+) (F\d+) \d{2}:\d{2}:\d{2}\.\d+ \d+ [^:]+:\d+\] (Check .+ failed! \( in .+) at
-            file: 1
-            line: 2
-            code: 3
-            message: 4
 
   # --- PFVM ---
   - label: "pfvm: Format"
     command: |
       source .pfvm_venv/bin/activate &&
-      bash scripts/run-pysen-format.sh -m
+      bash scripts/run-pysen-format.sh
     options:
       cwd: ${workspaceFolder}/pfvm
 
   # --- Others ---
+  - label: echofile
+    command: echo ${file}
+
   - label: nandemo-share
     command: |
       src=${file};
@@ -80,6 +45,9 @@ tasks:
 
   - label: Convert YAML/JSON
     command: python3 "${HOME}/.dotfiles/scripts/convert_yaml_json.py" ${file}
+
+  - label: Secretary
+    command: claude -p '/secretary'
 
 # --- Global settings ---
 type: shell

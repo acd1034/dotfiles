@@ -1,6 +1,7 @@
 {
   // C/C++
   "C_Cpp.suggestSnippets": false,
+  "C_Cpp.intelliSenseCacheSize": 1024,
   "[cpp][toml]": {
     "editor.formatOnSave": false
   },
@@ -21,7 +22,26 @@
   // "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
   "python.envFile": "${workspaceFolder}/.vscode/.env",
   "python.languageServer": "Pylance",
-  "python.terminal.useEnvFile": true
+  "python.terminal.useEnvFile": true,
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/codegen/l3ir/leir/python"
+  ],
+  "python.analysis.exclude": [
+    "**/node_modules",
+    "**/__pycache__",
+    ".git",
+    "**/.mypy_cache",
+    "**/.*",
+    "**/build",
+    "**/out",
+    "**/venv",
+    "**/.venv",
+    "gpfn2",
+    "gpfn3",
+    "gpfn4",
+    "lime",
+    "yuzu",
+  ],
   // "[python]": {
   //   "editor.defaultFormatter": "charliermarsh.ruff",
   //   "editor.suggestSelection": "recentlyUsedByPrefix",
