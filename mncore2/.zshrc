@@ -75,7 +75,6 @@ alias repoinit='make -f "${HOME}/.dotfiles/vscode/repoinit.mk"'
 # TODO
 # alias ls='eza'
 # alias grep='rg'
-# eval "$(zoxide init zsh --cmd cd)" # cd='zoxide'
 
 # fzf
 [ -f "${HOME}/.fzf.zsh" ] && source "${HOME}/.fzf.zsh" # keybindings for fzf

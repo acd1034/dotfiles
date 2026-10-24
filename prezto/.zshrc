@@ -74,7 +74,6 @@ alias gedit='code "${HOME}/.config/ghostty/config"'
 alias repoinit='make -f "${HOME}/.dotfiles/vscode/repoinit.mk"'
 alias ls='eza'
 alias grep='rg'
-eval "$(zoxide init zsh --cmd cd)" # cd='zoxide'
 
 # fzf
 export FZF_CTRL_T_COMMAND='fd --max-depth 1 --hidden --follow --exclude .git'
